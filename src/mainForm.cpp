@@ -9,6 +9,7 @@
 #pragma package(smart_init)
 #pragma link "Joystick"
 #pragma link "Joystick"
+#pragma link "CSPIN"
 #pragma resource "*.dfm"
 TForm1 *Form1;
 TForm6 *Form6;
@@ -993,7 +994,7 @@ void __fastcall TForm1::Exit1Click(TObject *Sender)
 
 void __fastcall TForm1::Mode1Click(TObject *Sender)
 {
-   Menu1->Items[0].Checked = true;   
+   Menu1->Items[0].Checked = true;
 }
 //---------------------------------------------------------------------------
 
@@ -1001,6 +1002,22 @@ void __fastcall TForm1::Mode1Click(TObject *Sender)
 void __fastcall TForm1::Setting1Click(TObject *Sender)
 {
    Form6->Show();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::chAutoStartClick(TObject *Sender)
+{
+   this->numAutoStartDelay->Enabled = this->chAutoStart->Checked;
+   numAutoStartDelayChange(Sender);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::numAutoStartDelayChange(TObject *Sender)
+{
+   machineNavigator->setAutoStart(
+      this->chAutoStart->Checked,
+      this->numAutoStartDelay->Value
+   );
 }
 //---------------------------------------------------------------------------
 

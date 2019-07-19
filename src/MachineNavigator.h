@@ -77,6 +77,7 @@ public:
    bool __fastcall isForward();
    bool __fastcall isInFreeLine();
    void doStop();
+   void __fastcall setAutoStart(bool enable, int delay);
 
 };
 #endif

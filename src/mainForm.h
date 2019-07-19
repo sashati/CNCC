@@ -25,6 +25,7 @@
 #include "ConfigForm.h"
 #include <classes.hpp>
 #include "Joystick.hpp"
+#include "CSPIN.h"
 
 //---------------------------------------------------------------------------
 class TForm1 : public TForm
@@ -69,6 +70,11 @@ __published:	// IDE-managed Components
    TMenuItem *NavigationMode1;
    TMenuItem *Mode1;
    TMenuItem *Config1;
+   TPanel *Panel4;
+   TLabel *Label1;
+   TCheckBox *chAutoStart;
+   TLabel *Label2;
+   TCSpinEdit *numAutoStartDelay;
    void __fastcall FormDestroy(TObject *Sender);
    void __fastcall FormCreate(TObject *Sender);
    void __fastcall BtnImportClick(TObject *Sender);
@@ -110,6 +116,8 @@ __published:	// IDE-managed Components
    void __fastcall Exit1Click(TObject *Sender);
    void __fastcall Mode1Click(TObject *Sender);
    void __fastcall Setting1Click(TObject *Sender);
+   void __fastcall chAutoStartClick(TObject *Sender);
+   void __fastcall numAutoStartDelayChange(TObject *Sender);
 
 private:
    void showStatus();

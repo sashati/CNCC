@@ -9,7 +9,7 @@
 #define YEAR  8
 
 
-AnsiString ver = "2.5.6";
+AnsiString ver = "2.6";
 
 #define INF 99999999999
 

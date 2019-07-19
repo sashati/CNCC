@@ -10,6 +10,9 @@
 int counterK = 1;
 unsigned long val = 0;
 
+bool isAutoStart = false;
+int autoStartDelay = 1;
+
 //Timer Initialization
 UINT uDelay = 1;
 UINT uResolution = 1;
@@ -72,6 +75,12 @@ void __fastcall MachineNavigator::Execute()
       Form1->setStartPoint(xLocation,yLocation);
 
       // Do Command
+      if (isAutoStart) {
+         Sleep(2000);
+         Form1->startGas();
+         Form1->normalSpeed();
+         Sleep((unsigned long)autoStartDelay * 1000);
+      }
 
       for (; i<navArray.count && i>= 0 ; )
       {
@@ -230,10 +239,6 @@ void __fastcall MachineNavigator::Execute()
         }else{
             if(currentIsInPolyLine)
             {
-               Form1->stopGas();
-               Form1->normalSpeed();
-               Suspend();
-
                bool nextIsInPolyLine = false;
                if(forward)
                   nextIsInPolyLine = InPolyLine(i+10);
@@ -243,6 +248,14 @@ void __fastcall MachineNavigator::Execute()
                {
                   toPolyLine();
                   Form1->normalSpeed();
+                  if (isAutoStart) {
+                     Sleep(2000);
+                     Form1->startGas();
+                     Sleep((unsigned long)autoStartDelay * 1000);
+                  } else {
+                     Form1->stopGas();
+                     Suspend();
+                  }
                }
             }
          }
@@ -781,7 +794,6 @@ bool __fastcall MachineNavigator::isInFreeLine()
    return inFreeLine;
 }
 
-
 void MachineNavigator::doStop()
 {
    delay = NO_FLICK_START_SPEED;
@@ -789,3 +801,8 @@ void MachineNavigator::doStop()
          this->Suspend();
 }
 
+void __fastcall MachineNavigator::setAutoStart(bool enable, int delay)
+{
+   isAutoStart = enable;
+   autoStartDelay = delay;
+}

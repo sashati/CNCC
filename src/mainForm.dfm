@@ -1,10 +1,10 @@
 object Form1: TForm1
-  Left = 295
-  Top = 138
+  Left = 334
+  Top = 108
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'CNCC '
-  ClientHeight = 566
+  ClientHeight = 569
   ClientWidth = 996
   Color = clMedGray
   Font.Charset = DEFAULT_CHARSET
@@ -3087,7 +3087,7 @@ object Form1: TForm1
     end
   end
   object BtnImport: TBitBtn
-    Left = 343
+    Left = 271
     Top = 392
     Width = 128
     Height = 65
@@ -6735,15 +6735,15 @@ object Form1: TForm1
     end
   end
   object Panel2: TPanel
-    Left = 304
+    Left = 264
     Top = 464
-    Width = 369
+    Width = 433
     Height = 97
     BevelInner = bvRaised
     Color = clSilver
     TabOrder = 4
     object BtnForward: TBitBtn
-      Left = 264
+      Left = 328
       Top = 24
       Width = 81
       Height = 57
@@ -7088,7 +7088,7 @@ object Form1: TForm1
         E0EEF0E0EEF0E0EEF0E0EEF0FFFF}
     end
     object BtnBackward: TBitBtn
-      Left = 16
+      Left = 24
       Top = 24
       Width = 81
       Height = 57
@@ -7433,9 +7433,9 @@ object Form1: TForm1
         DCEBEEDCEBEEDCEBEEDCEBEEFFFF}
     end
     object pnlMotorFree: TPanel
-      Left = 112
+      Left = 136
       Top = 24
-      Width = 137
+      Width = 169
       Height = 57
       BevelInner = bvLowered
       BevelOuter = bvLowered
@@ -7444,7 +7444,7 @@ object Form1: TForm1
       TabOrder = 3
     end
     object BtnStop: TBitBtn
-      Left = 136
+      Left = 176
       Top = 24
       Width = 89
       Height = 57
@@ -7789,15 +7789,15 @@ object Form1: TForm1
     end
   end
   object Panel3: TPanel
-    Left = 493
+    Left = 413
     Top = 389
-    Width = 153
+    Width = 132
     Height = 68
     BevelInner = bvRaised
     Color = clSilver
     TabOrder = 5
     object Image3: TImage
-      Left = 88
+      Left = 72
       Top = 16
       Width = 49
       Height = 33
@@ -7975,6 +7975,28 @@ object Form1: TForm1
     object LabelSpeed: TLabel
       Left = 16
       Top = 29
+      Width = 25
+      Height = 20
+      Alignment = taCenter
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+  end
+  object Panel4: TPanel
+    Left = 560
+    Top = 389
+    Width = 137
+    Height = 68
+    BevelInner = bvRaised
+    Color = clSilver
+    TabOrder = 6
+    object Label1: TLabel
+      Left = 16
+      Top = 29
       Width = 6
       Height = 20
       Alignment = taCenter
@@ -7984,6 +8006,47 @@ object Form1: TForm1
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
       ParentFont = False
+    end
+    object Label2: TLabel
+      Left = 72
+      Top = 32
+      Width = 36
+      Height = 20
+      Caption = 'Secs'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+    end
+    object chAutoStart: TCheckBox
+      Left = 16
+      Top = 8
+      Width = 97
+      Height = 17
+      Caption = 'Auto Start'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
+      OnClick = chAutoStartClick
+    end
+    object numAutoStartDelay: TCSpinEdit
+      Left = 18
+      Top = 32
+      Width = 41
+      Height = 22
+      EditorEnabled = False
+      Enabled = False
+      MaxValue = 30
+      MinValue = 1
+      TabOrder = 1
+      Value = 1
+      OnChange = numAutoStartDelayChange
     end
   end
   object ShowCuttingMapTimer: TTimer
